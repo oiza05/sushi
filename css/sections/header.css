@@ -1,66 +1,90 @@
 .header__nav {
-    display: flex;
-    overflow: hidden;
-  }
+  display: flex;
+  overflow: hidden;
+}
+
+.header__logo {
+  flex: 1;
+  display: flex;
+
+  position: relative;
+  padding: 20px;
+}
+
+.header__logo-overlay {
+  position: absolute;
+  inset: 0; /* Equivalente a top:10px, right:10px... */
+  width: 100%;
+
+  background-color: var(--primary-color);
+  z-index: -1; /*z-index controla la superposicion, asigna una profundiad, mayor z-index mayor prioridad*/
+}
+
+.header__logo h4 {
+  padding-left: 30px;
+
+  color: #fff;
+  font-weight: 700;
+  font-size: 24px;
+  opacity: 0.8;
+  font-family: var(--playfair-display);
+  text-transform: uppercase;
+}
+
+.header__menu,
+.header__menu-mobile {
+  padding: 20px;
+  flex: 1.236; /*flex-grow:1.236 → Este ítem crece más que otros cuando hay espacio extra. Cuanto mayor el número, más espacio ocupa.
+
+  flex-shrink: 1 → Puede reducirse si no hay suficiente espacio.
   
-  .header__logo {
-    flex: 1;
-    display: flex;
-  
-    position: relative;
-    padding: 20px;
-  }
-  
-  .header__logo-overlay {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-  
-    background-color: var(--primary-color);
-    z-index: -1;
-  }
-  
-  .header__logo h4 {
-    padding-left: 30px;
-  
-    font-weight: 700;
-    font-size: 24px;
-    text-transform: uppercase;
-    font-family: var(--playfair-display);
-    color: #fff;
-    opacity: 0.8;
-  }
-  
-  .header__menu, .header__menu-mobile {
-    padding: 20px;
-    flex: 1.236;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 64px;
-  
-    list-style: none;
-  }
-  
-  .header__menu li {
-    font-weight: 500;
-    font-family: var(--plus-jakarta-sans);
-    color: var(--secondary-color);
-    font-size: 16px;
-    text-transform: uppercase;
-    line-height: 20px;
-    cursor: pointer;
-  }
-  
-  .header__menu li img {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-  }
-  
-  .header__menu-mobile {
-    display: none;
-    gap: 20px;
-  
-    position: relative;
-  }
+  flex-basis: 0% → Su base inicial es cero, así que el tamaño total depende de cuánto espacio haya disponible. */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  list-style: none;
+  /*   list-style-type: disc;        • (por defecto en <ul>) 
+    list-style-type: circle;     ◦ 
+    list-style-type: square;     ■ 
+    list-style-type: decimal;     1, 2, 3 (en <ol>) 
+    list-style-type: upper-roman;  I, II, III
+    list-style-type: none;        sin viñeta */
+  gap: 64px; /* gap define el espacio entre elementos hijos dentro de contenedores
+  que usan Flexpbox(display:flex) o Grid(display:grid) */
+}
+.header__menu li {
+  font-weight: 500;
+  font-family: var(--plus-jakarta-sans);
+  color: var(--secondary-color);
+  font-size: 16px;
+  text-transform: uppercase;
+  line-height: 20px; /*la altura a la que esta el menu*/
+  cursor: pointer;
+  /* default	Flecha normal
+    pointer	Mano (clickable)
+    text	Cursor de texto (como en un input)
+    move	Crucecita de mover
+    not-allowed	Círculo con línea (🚫)
+    wait	Reloj / reloj de arena
+    crosshair	Cruz fina
+    help	Signo de interrogación
+    grab / grabbing	Manito para arrastrar cosas
+    none	Oculta el cursor
+    url('mi-icono.png'), auto	Cursor personalizado */
+}
+
+.header__menu li img {
+  height: 24px;
+  width: 24px;
+  object-fit: contain;
+  /* fill	Estira el contenido para llenar el contenedor (puede deformar).
+    contain	Ajusta el contenido sin recortar para que entre todo, respetando proporciones.
+    cover	Cubre todo el contenedor, recortando si es necesario, sin deformar.
+    none	No ajusta nada. Muestra el contenido en su tamaño original.
+    scale-down	Usa el más pequeño entre none y contain. */
+}
+.header__menu-mobile {
+  display: none;
+  gap: 20px;
+  position: relative;
+}
